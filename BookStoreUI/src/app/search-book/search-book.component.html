@@ -1,0 +1,68 @@
+<app-header></app-header>
+<div class="hidden">
+  <div class="left">
+    <app-filter class="wizard" (data)="Parent($event)"></app-filter>
+  </div>
+</div>
+
+<div class="right">
+  <div>
+    <div class="form-outline" >
+      <label class="form-label" for="sorting" ></label>
+
+      <select 
+        id="sorting"
+        class="form-control"
+        [(ngModel)]="sorting"
+        [ngModelOptions]="{ standalone: true }"
+        style="width: 25%; margin-left: 800px; "
+      >
+        <option value="-1" selected>Default</option>
+
+        <option value="0">Assending</option>
+
+        <option value="1">Desending</option>
+      </select>
+    </div>
+    
+    <div class="alert alert-danger mt-2"
+    style="text-align: center; margin: 20%; align-content: center"
+    *ngIf="flag === true" >
+    Books Not Found :(
+  </div> 
+   
+   
+    <div class="container">
+      <div class="card" *ngFor="let book of Books">
+         <div class="card__header" routerLink="/BookDetails/{{ book.bookId }}"> 
+          <span class="tag tag-blue m-4">{{ book.category }}</span>
+
+          <img
+            src="assets/ikigai.jfif"
+            alt="card__image"
+            class="card__image"
+            width="200"
+            height="140"
+            padding-top="10px"
+           
+          />
+        </div>
+        <div class="card__body">
+          
+          <h4 >{{ book.bookTitle }}</h4>
+          <p>
+            {{ book.author}}
+          </p>
+
+        </div>
+        <div class="card__footer"></div>
+      </div>
+      <pagination
+        [totalItems]="pages"
+        class="pgnition"
+        (pageChanged)="pageChanged($event)"
+      ></pagination>
+  
+  </div>
+</div>
+</div>

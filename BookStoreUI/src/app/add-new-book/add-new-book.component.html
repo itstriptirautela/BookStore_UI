@@ -1,0 +1,95 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="row no-gutter ">
+      <!-- The image half -->
+      <div class="col-md-6 d-none d-md-flex bg-image">
+        <div class="text-body">
+        <h1 class="text-lg-center tit">Book Store</h1>
+        <pre class="para">
+          “A great book should leave you with many experiences, and slightly 
+          exhausted at the end. You live several lives while reading.”
+        </pre>
+      </div>
+      </div>
+      
+
+
+      <!-- The content half -->
+      <div class="col-md-6  " >
+          <div class="login d-flex align-items-center py-5">
+           
+              <!-- Demo content-->
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-10 col-xl-8 mx-auto">
+                        <h1 class="text-success h1 wel">Welcome to Book Store</h1>
+                        <p class="sign text-success">Add New Book</p>
+                        <br>
+                        
+                          <form class="form-signin"  [formGroup]="formdata" (ngSubmit)="AddBook()" >
+                            <div class="form-group form-box inputiteam input-wrapperName">
+                              <input type="text"  name="bookTitle" id="bookTitle" class="form-control p-md-2"  placeholder=" Book Title" formControlName="bookTitle" required bookTitle >
+                              <span class="text-danger" *ngIf ="formdata.controls['bookTitle'].dirty && formdata.hasError('required','bookTitle')">*Title is required</span>
+                          </div>
+
+                              <br>
+                              <div class="form-group form-box inputiteam input-wrapperName">
+                                <input type="text" ngModel name="Author" id="Author" class="form-control p-md-2"  placeholder=" Book Author" formControlName="Author" required Author >
+                                <span class="text-danger" *ngIf ="formdata.controls['Author'].dirty && formdata.hasError('required','Author')">*Author is required</span>
+                            </div>
+                                  <br>
+                                  <div class="form-group form-box inputiteam input-wrapperName">
+                                    <input type="text" ngModel name="Description" id="Description" class="form-control p-md-2"  placeholder=" Book Description" formControlName="Description" required Description >
+                                    <span class="text-danger" *ngIf ="formdata.controls['Description'].dirty && formdata.hasError('required','Description')">*Title is required</span>
+                                </div>
+                                  <br>
+                                
+                                  <div class="form-group form-box inputiteam input-wrapperRole">
+                                    <select
+                                      class="form-control p-md-2" ngModel
+                                      name="Category"
+                                      aria-placeholder="Book Category"
+                                      ngModel
+                                      formControlName="Category" >
+                                       <option [ngValue]="null" disabled selected="selected">Select Book Category </option>
+                                      <!-- <option  *ngFor="let item of  bookCategories" [ngValue]="item.CategoryId"> {{ item.Category}}</option>  -->
+                                      <option *ngFor="let item of Category" [value]="item" ngModel>
+                                        {{ item }}
+                                      </option>
+                                    </select>
+                                  </div>
+                                  <br>
+
+                                  <div class="form-group form-box inputiteam input-wrapperName">
+                                    <input type="number" ngModel name="Price" id="Price" class="form-control p-md-2"  placeholder=" Book Price" formControlName="bookPrice" required Price >
+                                    <span class="text-danger" *ngIf ="formdata.controls['Price'].dirty && formdata.hasError('required','Price')">*Price is required</span>
+                                </div>
+                                    <br>
+                                    <div class="form-group form-box inputiteam input-wrapperName">
+                                      <input type="text" ngModel name="Publisher" id="Publisher" class="form-control p-md-2"  placeholder="Publisher" formControlName="Publisher" required Publisher >
+                                      <span class="text-danger" *ngIf ="formdata.controls['Publisher'].dirty && formdata.hasError('required','Publisher')">*Publisher is required</span>
+                                  </div>
+                                                       <br>
+                                      <div class="form-group form-box inputiteam input-wrapperName">
+                              <input type="number" ngModel name="NumberOfCopies" id="NumberOfCopies" class="form-control p-md-2"  placeholder=" Number Of Copies" formControlName="NumberOfCopies" required NumberOfCopies >
+                              <span class="text-danger" *ngIf ="formdata.controls['NumberOfCopies'].dirty && formdata.hasError('required','NumberOfCopies')">*Number Of Copies is required</span>
+                          </div>
+              
+                          <br>
+                         
+                          <div class="d-grid m-3">
+                            <button type="submit" id="btnSubmit"  class="btn btn-outline-success btn-block add">Add Book</button>
+                          </div>
+                          <div class="alert alert-danger mt-3 msg" *ngIf="errMsg.length > 0">
+                            {{ errMsg }}
+                          </div>
+                                  </form>
+                                 
+                         
+                      </div>
+                  </div>
+              </div><!-- End -->
+
+          </div>
+      </div><!-- End -->
+

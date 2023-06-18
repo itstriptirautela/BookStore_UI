@@ -1,0 +1,48 @@
+<div class="container-fluid body">
+  <div class="row">
+    <div class="col-md-12 navbar" style="font-size: px; color: black">
+       <form >
+        <div class="form-outline mb-1 mt-3">
+          <label class="form-label" for="booktitle">Title</label>
+          <input  type="text" id="title" class="form-control rounded" placeholder="Book Title" [(ngModel)]="bookTitle" [ngModelOptions]="{ standalone: true }"/>
+        </div>
+
+        <div class="form-outline mb-1 mt-3">
+          <label class="form-label" for="category"> Book Category</label >
+            <select id="bookCategory" class="form-control" [(ngModel)]="bookCategory" [ngModelOptions]="{ standalone: true }">
+            <option value="Any" selected>Any Type</option>
+            <option value="Comedy">Comedy</option>
+           <option value="Romance">Romance</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Biography">Biography</option>
+            <option value="Horror">Horror</option>
+            <option value="Thriller">Thriler</option>
+           
+          </select>
+        </div>
+
+          <div class="form-outline mb-1 mt-3">
+          <label class="form-label" for="Author">Author</label
+          ><input  type="text" id="author" class="form-control" placeholder="Author" [(ngModel)]="author" [ngModelOptions]="{ standalone: true }" />
+        </div>
+
+        <div class="form-outline mb-1 mt-3">
+          <label class="form-label" for="Price">Book Price</label>
+          <input type="number" id="bookPrice" class="form-control" placeholder="Price" [(ngModel)]="bookPrice" [ngModelOptions]="{ standalone: true }"/>
+        </div>
+        <div class="form-outline mb-1 mt-3">
+          <label class="form-label" for="Publisher">Publisher</label>
+          <input type="text" id="publisher" class="form-control" [(ngModel)]="publisher" [ngModelOptions]="{ standalone: true }">
+         </div> 
+
+        <div class="text-center pt-1 pb-1 form" >
+          <button  type="submit" id="filter"
+            class="form-control btn  btn-lg btn-block mt-4 button" (click)="filter()">
+            <i class="fa fa-search text-white lock" aria-hidden="true"></i>Filter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,13 @@
+.form-label{
+  color:rgb(99, 6, 99) ;
+  font-weight: 40px;
+}
+.form-control{
+border-color: rgb(99, 6, 99);
+border-width: 2px;
+color:rgb(99, 6, 99) ;
+}
+ #filter{
+  background-color: rgb(99, 6, 99); 
+ color: white;
+}

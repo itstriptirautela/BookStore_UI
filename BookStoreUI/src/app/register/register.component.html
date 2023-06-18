@@ -1,0 +1,149 @@
+<div class="container-fluid">
+  <div class="row no-gutter ">
+      <!-- The image half -->
+      <div class="col-md-6 d-none d-md-flex bg-image">
+        <div class="text-body">
+        <h1 class="text-lg-center tit">Book Store</h1>
+        <pre class="para">
+          “A great book should leave you with many experiences, and slightly 
+          exhausted at the end. You live several lives while reading.”
+        </pre>
+      </div>
+      </div>
+      
+
+
+      <!-- The content half -->
+      <div class="col-md-6  " >
+          <div class="login d-flex align-items-center py-5">
+            <div class="topleft">
+              <button id="btn1" type="button" class="btn btn m-1"   *ngIf="LoggedInCheack == false" routerLink="">Log in </button>
+              <button id="btn2" type="button" class="btn btn m-1"   *ngIf="LoggedInCheack == false" routerLink="/Register"> Register</button>
+             </div>
+              <!-- Demo content-->
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-10 col-xl-8 mx-auto">
+                        <h1 class="text-success h1 wel">Welcome to Book Store</h1>
+                        <p class="sign text-success"   *ngIf="LoggedInCheack == false">Create An Account</p>
+                        <p class="sign text-success"   *ngIf="LoggedInCheack == true">Update your Profile here...</p>
+                        <br>
+                        
+                          <form class="form-signin"  #formdata="ngForm" (ngSubmit)="RegisterUser(formdata.value)">
+                            <div class="form-group form-box inputiteam input-wrapperName">
+                              <input type="text" name="Name" id="Name" ngModel   class="form-control p-md-2"  placeholder="Name" formControlName="Name" required Name >
+                              <!-- <span class="text-danger" *ngIf ="signupForm.controls['Name'].dirty && signupForm.hasError('required','Name')">*Name is required</span> -->
+                          </div>
+
+                              <br>
+                                      <div class="form-group form-box inputiteam input-wrapperName"  *ngIf="LoggedInCheack == false">
+                                      <input type="text" name="userName" id="userName"  ngModel class="form-control p-md-2" placeholder="Username" formControlName="userName" required UserName>
+                                      <!-- <span class="text-danger" *ngIf="signupForm.controls['userName'].touched && signupForm.controls['userName'].dirty && signupForm.hasError('required','userName')">*Username is required</span> -->
+                                </div>
+                                <div class="form-group form-box inputiteam input-wrapperName"  *ngIf="LoggedInCheack == true">
+                                  <input type="text" name="userName" id="userName"   class="form-control p-md-2" value="{{UserName}}" formControlName="userName" required UserName>
+                                  <!-- <span class="text-danger" *ngIf="signupForm.controls['userName'].touched && signupForm.controls['userName'].dirty && signupForm.hasError('required','userName')">*Username is required</span> -->
+                            </div>
+                                  <br>
+                                  <div
+                                  class="form-group form-box inputiteam input-wrapperEmail"  *ngIf="LoggedInCheack == false">
+                                 <input type="email" id="userEmail" name="userEmail" ngModel class="form-control p-md-2" placeholder="Email" formControlName="userEmail">
+                                          <!-- <span class="text-danger" *ngIf="signupForm.controls['userEmail'].dirty && signupForm.hasError('required','userEmail')">*Email address is required</span>
+                                          <span class="text-danger" *ngIf="signupForm.hasError('email','userEmail')">*Email is Invalid</span> -->
+                                      
+                                  </div>
+                                  <div
+                                  class="form-group form-box inputiteam input-wrapperEmail"  *ngIf="LoggedInCheack == true">
+                                 <input type="email" id="userEmail" name="userEmail" ngModel class="form-control p-md-2" value="{{UserEmail}}" formControlName="userEmail">
+                                         
+                                      
+                                  </div>
+                                  <br>
+                                  <div class="form-group form-box inputiteam input-wrapperPhone">
+                                       <input type="tel" id="userMobile" name="userMobile" ngModel   class="form-control p-md-2" placeholder="Phone Number" formControlName="userMobile">
+                                       <!-- <span class="text-danger" *ngIf="signupForm.controls['userMobile'].dirty && signupForm.hasError('required','userMobile')">*Phone number is required</span> -->
+                                    </div>
+                                    <br>
+                                    <div class="form-group form-box inputiteam input-wrapperPassword">
+                                      <input type="password" name ="userPassword" id="userPassword" ngModel  class="form-control p-md-2"     autocomplete="off" placeholder=" Password" formControlName="userPassword">
+                                          <!-- <span class="text-danger" *ngIf="signupForm.controls['userPassword'].dirty && signupForm.hasError('required','userPassword')">*Password is required</span> -->
+                                          
+                                        </div>
+                                            <br>
+                                            <div class="form-group form-box inputiteam input-wrapperRole">
+                                             
+                                              <select type="role" id="userRole" name="userRole" ngModel  class="form-control p-md-2"  formControlName="userRole" >
+                                              <option selected value="">Select Role </option>
+                                              <option *ngFor="let item of Role" [value]="item">
+                                                {{ item }}
+                                              </option>
+                                            </select>
+                                             <!-- <span class="text-danger" *ngIf="signupForm.controls['userRole'].dirty && signupForm.hasError('required','userRole')">*Role is required</span> -->
+                                            
+                                                       </div>
+                                                       <div
+                                                       class="form-group form-box inputiteam input-wrapperEmail"  *ngIf="LoggedInCheack == true">
+                                                      <input type="role" id="userRole" name="userRole" ngModel class="form-control p-md-2" value="{{Role}}" formControlName="Role">
+                                                              
+                                                           
+                                                       </div>
+                                                       <br>
+                                            <div class="form-group form-box inputiteam input-wrapperAddress">
+                                      <textarea id="userAddress" name="userAddress" class="md-textarea form-control"
+                                          formControlName="userAddress" placeholder="Address"></textarea>
+                                          <!-- <span class="text-danger" *ngIf="signupForm.controls['userAddress'].dirty && signupForm.hasError('required','userAddress')">*Address is required</span>-->
+                                           </div> 
+              
+                          <br>
+                            <div class="d-flex justify-content-between align-items-center" *ngIf="LoggedInCheack == false">
+                              <!-- Checkbox -->
+                              <div class="form-check mb-0" >
+                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" required/>
+                    
+                                <label
+                                  class="form-check-label align-items-center"
+                                  for="terms and contiton">
+                                  I agree to the terms of service
+                                </label>
+                              </div>
+                            </div>
+                           
+                            <div class="d-grid" *ngIf="LoggedInCheack == false">
+                              <button class="button btnSubmit reg" value="Create"   type="submit">Register</button>
+                              </div>
+                              <div class="d-grid" *ngIf="LoggedInCheack == true">
+                              <button class="button btnSubmit upd" value="Update"    type="submit">Update</button>
+                          </div>
+                          <div class m-4 *ngIf="LoggedInCheack == false">
+                                     
+                            <button id=btn3 type="button" class="btn btn-light btn-floating m-2">
+                              <span id=icon class="fa fa-facebook-f" ></span> Facebook</button>
+                        
+                              <button id=btn4 type="button" class="btn btn-light btn-floating m-3" >
+                                <span id=icon class="fa fa-twitter"  ></span> Twitter</button>
+                              
+                           
+                                <button id=btn5 type="button" class="btn btn-light btn-floating m-3" >
+                                  <span id=icon class="fa fa-google"  ></span> Google</button>
+                             
+                           </div>
+                                      <p *ngIf="LoggedInCheack == false"
+                                      class="small fw-bold mt-2 pt-1 mb-0" >Already a member?
+                                      <a href="" routerLink="" class="link-success li">Login Here</a>
+                                    </p>
+                                    <div class="alert alert-danger mt-3 msg" *ngIf="errMsg.length > 0">
+                                      {{ errMsg }}
+                                    </div>
+                                  </form>
+                                 
+                         
+                      </div>
+                  </div>
+              </div><!-- End -->
+
+          </div>
+      </div><!-- End -->
+
+  </div>
+</div>
+

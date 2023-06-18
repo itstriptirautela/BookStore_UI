@@ -1,0 +1,143 @@
+
+<div *ngFor="let book of books">
+    <div class="row">
+        <div class="left">
+            <div class= "rating">
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star" ></i>
+                <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <i class="fa fa-star-o" ></i>
+              </div> 
+              <h1>{{book.bookTitle}}</h1>
+              <div class="author" >
+                <img src="assets/j.k.jfif" >
+                <p>{{book.author}}</p>
+              </div>
+
+              <div class='desc'>
+              <p>{{book.description}}</p>
+            </div>
+            <div class= "price">
+                <p>${{book.bookPrice}}</p>
+            </div>
+          <div class="icons">
+            <i id=icon2 class="fa fa-heart" aria-hidden="true"></i>
+            <i id=icon class="fa fa-shopping-cart" aria-hidden="true" ></i>
+      </div>
+      <!-- <div class="container">
+      <div class="row2"> -->
+          <h1>Details</h1>
+          <div class="feature-box "> 
+              <div class="left-side">
+              <br>
+              <p >Book Title</p>
+              <br>
+              <p>Author</p>
+              <br>
+              <p>Category</p>
+              <br>
+              <p>Publisher</p>
+              <br>
+              <p>Number Of Copies</p>
+              <br>
+              <p>ISBN</p>
+              <br>
+              <p>Edition Language</p>
+            </div>
+            <div class="right-side">
+                <br>
+                <p>{{book.bookTitle}}</p>
+                <br>
+                <p>{{book.author}}</p>
+                <br>
+                <p>{{book.category}}</p>
+                <br>
+                <p>{{book.publisher}}</p>    
+                <br>            
+                <p>{{book.numberOfCopies}}</p>
+                <br>
+                <p>121341381648</p>
+                <br>
+                <p>English</p>
+
+            </div>
+        </div>
+        <div class="review">
+          <span class="heading">Customer Reviews</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star-half-o"></span>
+<p>4.1 average based on 254 reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row2">
+  <div class="sides">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side rights">
+    <div>150</div>
+  </div>
+  <div class="sides">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side rights">
+    <div>63</div>
+  </div>
+  <div class="sides">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side rights">
+    <div>15</div>
+  </div>
+  <div class="sides">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side rights">
+    <div>6</div>
+  </div>
+  <div class="sides">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side rights">
+    <div>20</div>
+  </div>
+  </div>
+</div>
+<div class="delete" *ngIf="Role == 'Admin'">
+  <!-- <p>Want to Delete Book?</p>  -->
+ <button (click)="deleteBook(book.bookId)"class="btn btn-dark" style="margin-bottom: 40px;">DELETE</button>
+       </div>
+    </div>
+  <div class="right">
+    <img id="img1" src="assets/lordofring.jfif">
+</div>
+</div>
+  </div>
